@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecuperatorioProgll", "RecuperatorioProgll\RecuperatorioProgll.csproj", "{C58BD6DF-673A-435B-8259-2060CA17DEFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{59F98D1D-E3F4-4DEA-8652-037F3D1FB492}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C58BD6DF-673A-435B-8259-2060CA17DEFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C58BD6DF-673A-435B-8259-2060CA17DEFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C58BD6DF-673A-435B-8259-2060CA17DEFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C58BD6DF-673A-435B-8259-2060CA17DEFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59F98D1D-E3F4-4DEA-8652-037F3D1FB492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59F98D1D-E3F4-4DEA-8652-037F3D1FB492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59F98D1D-E3F4-4DEA-8652-037F3D1FB492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59F98D1D-E3F4-4DEA-8652-037F3D1FB492}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {079E219D-F329-435C-B3AB-1ED3D30401CB}
+	EndGlobalSection
+EndGlobal
