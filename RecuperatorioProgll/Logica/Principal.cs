@@ -32,16 +32,22 @@ namespace Logica
             }
         }
 
+        //ESTE METODO PODRIA NO EXISTIR YA QUE TIENE 1 SOLA SENTENCIA
         public Usuario ObtenerUsuarioPorDni(int dni)
         {
+            //SI EL DNI ES INCORRECTO ESTO GENERA UNA EXCEPCION, DEBERIA SER SINGLEORDEFAULT
             Usuario usuario = Usuarios.Single(x => x.Dni == dni);
             return usuario;
         }
 
+        //EL NOMBRE DEL METODO NO COINCIDE CON LO QUE HACE. ES UN PROBLEMA DE MANTENIBILIDAD A FUTURO
+        //PODRIA DEVOLVER RESULTADO COMO OBJETO, ASI PODRIAS INFORMAR EL PROBLEMA EN CASO DE VALIDACION
         public List<Movimiento> MovimientosRealizados(int dniEnvia,int dniRecibe, string descripcion, double monto)
         {
+            //EL FILTRO DE USUARIOS ESTA AL REVES.
             Usuario usuarioReceptor = Usuarios.Single(x => x.Dni == dniEnvia);
             Usuario usuarioTransmisor = Usuarios.Single(x => x.Dni == dniRecibe);
+
             if ((usuarioReceptor == null) || (usuarioTransmisor == null))
                 return null;
 
@@ -56,13 +62,19 @@ namespace Logica
                 usuarioReceptor.HistoricoMovimientos.Add(transaccion);
                 Movimientos.Add(transaccionRecibida);
 
+                //SI BIEN NO ESTA MAL, HAY UN PROBLEMA DE DISEÑO. ESTE METODO TIENE LOGICA QUE LE CORRESPONDE A USUARIO.
+                //LO IDEAL SERIA QUE EL USUARIO TENGA UN METODO "CREARTRANSACCION" QUE SE ENCARGUE AL MISMO TIEMPO DE AGREGAR A SU LISTA Y 
+                //DESCONTAR EL SALDO.
+
                 return Movimientos;
             }
             return null;
         }
 
+        //LA DESCRIPCION Y EL MONTO NO SON NECESARIOS. EL QUE CANCELA SOLO SABE LOS IDS.
         public Resultado CancelarMovimiento(int idEnvia, int idRecibe, string descripcion, double monto)
         {
+            //MONTO Y DESCRIPCION SALEN DE ESTOS MOVIMIENTOS ORIGINALES
             Movimiento movimiento = Movimientos.Find(x => x.Identificador == idEnvia);
             Movimiento movimiento2 = Movimientos.Find(x => x.Identificador == idRecibe);
 
@@ -79,6 +91,8 @@ namespace Logica
                 Movimientos.Add(invertir);
                 return new Resultado(true, $"Cancelacion: {descripcion}");
             }
+
+            //INFORMAR CUAL ES EL ERROR QUE SE PRODUCE, LA PALABRA "ERROR" NO LE SIRVE AL CLIENTE PARA SABER QUE PASO.
             return new Resultado(false, "Error");
         }
 
@@ -87,6 +101,7 @@ namespace Logica
             Usuario usuario = ObtenerUsuarioPorDni(dni);
             if(usuario != null)
             {
+                //ASI PUESTO NO ORDENA, LE FALTA LA ASIGNACION A LA LISTA O A OTRA VARIABLE
                 usuario.HistoricoMovimientos.OrderByDescending(x => x.Fecha);
                 return usuario.HistoricoMovimientos;
             }

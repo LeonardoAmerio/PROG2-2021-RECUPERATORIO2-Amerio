@@ -8,7 +8,7 @@ namespace Logica
 {
     public class Resultado
     {
-        public bool EstaBien { get; set; }
+        public bool EstaBien { get; set; } //PODRIA LLAMARSE OK O CORRECTO
         public string Mensaje { get; set; }
       
 

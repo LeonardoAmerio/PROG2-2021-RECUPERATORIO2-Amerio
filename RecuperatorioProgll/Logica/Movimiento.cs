@@ -17,7 +17,7 @@ namespace Logica
         {
             Random random = new Random();
             this.Identificador = random.Next(1, 10000);
-            this.Fecha = DateTime.Today;
+            this.Fecha = DateTime.Today; //SIEMPRE USAR DATETIME.NOW, 
             this.Descripcion = descripcion;
             this.Monto = monto;
         }
